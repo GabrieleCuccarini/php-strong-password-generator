@@ -32,7 +32,7 @@ randomPassword();
             <div class="bottom-side d-flex justify-content-center my-3">
                 <div>
                     <label for="repetid"><b>Caratteri Ripetuti</b></label>
-                    <input type="checkbox" name="repetion" id="repetid">
+                    <input type="checkbox" name="repetition" id="repetid">
                 </div>
                 <div class="mx-4">
                     <label for="lettid"><b>Lettere</b></label>

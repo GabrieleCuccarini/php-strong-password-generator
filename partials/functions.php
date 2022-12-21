@@ -4,6 +4,7 @@ function randomPassword() {
     $checklett = isset($_GET["letters"]);
     $checknumb = isset($_GET["numbers"]);
     $checksymb = isset($_GET["symbols"]);
+    $checkrepeat = isset($_GET["repetition"]);
     if (!empty($stringinput)) {
     $NumInput = (int)$stringinput;
     // var_dump($NumInput);
@@ -27,12 +28,21 @@ function randomPassword() {
     $alphaLength = strlen($totalarray) - 1; //setto l'index assegnandogli stringlength -1
     for ($i = 0; $i < $NumInput; $i++) {
         $n = rand(0, $alphaLength); //$n è l'index nel ciclo for, impostato casualmente tra 0 e alphalenght
-        $pass[] = $totalarray[$n]; // aggiungo all'array $pass il carattere trovato all'indice $n dell'array $totalstr
+        if ($checkrepeat) {
+            $pass[] = $totalarray[$n]; 
+        // Se le ripetizioni sono consentite aggiungo all'array $pass il carattere trovato 
+        // all'indice $n di $totalarray. Else -->
+        } else {
+        if (in_array($totalarray[$n], $pass)) {
+            } else {
+               $pass[] = $totalarray[$n]; 
+            }
+        }
     };
     $password = implode($pass);
     $_SESSION['password'] = $password;
     var_dump($_SESSION['password']);
-    // return $password;    ritorno la stringa $password
+    //return $password;    ritorno la stringa $password
     header('Location: ./partials/password.php');
     }
 };
