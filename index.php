@@ -1,7 +1,8 @@
 <?php
 include_once __DIR__ . '/partials/functions.php';
-
+session_start();
 randomPassword();
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ randomPassword();
     <h1 class="mt-2">Strong Password Generator</h1>
     <div class="container py-2 bg-w mt-4">
         <form action="" method="GET" class="d-flex justify-content-around my-3">
-            <label for="inp"><h4>Lunghezza Password</h4></label>
+            <label for="inp"><h4>Lunghezza Password:</h4></label>
             <input name="passlength" type="number" id="inp" class="form-control w450 mx-2"
             placeholder="Inserisci la lunghezza della password da generare">
             <input class="wider" type="submit">
