@@ -21,17 +21,33 @@ randomPassword();
 <body>
     <h1 class="mt-2">Strong Password Generator</h1>
     <div class="container py-2 bg-w mt-4">
-        <form action="" method="GET" class="d-flex justify-content-around my-3">
-            <label for="inp"><h4>Lunghezza Password:</h4></label>
-            <input name="passlength" type="number" id="inp" class="form-control w450 mx-2"
-            placeholder="Inserisci la lunghezza della password da generare">
-            <input class="wider" type="submit">
-            <input class="wider" type="reset">
+        <form action="" method="GET">
+            <div class="top-side d-flex justify-content-around my-3">
+                <label for="inp"><h4>Lunghezza Password:</h4></label>
+                <input name="passlength" type="number" id="inp" class="form-control w450 mx-2"
+                placeholder="Inserisci la lunghezza della password da generare">
+                <input class="wider" type="submit">
+                <input class="wider" type="reset">
+            </div>
+            <div class="bottom-side d-flex justify-content-center my-3">
+                <div>
+                    <label for="repetid"><b>Caratteri Ripetuti</b></label>
+                    <input type="checkbox" name="repetion" id="repetid">
+                </div>
+                <div class="mx-4">
+                    <label for="lettid"><b>Lettere</b></label>
+                    <input type="checkbox" name="letters" id="lettid">
+                </div>
+                <div class="mx-4">
+                    <label for="numbid"><b>Numeri</b></label>
+                    <input type="checkbox" name="numbers" id="numbid">
+                </div>
+                <div>
+                    <label for="symbid"><b>Simboli</b></label>
+                    <input type="checkbox" name="symbols" id="symbid">  
+                </div>
+            </div>
         </form>
-        <div class="d-flex justify-content-center">
-            <h3 class="color-green">Password generata:</h3>
-            <h3 class="text-center color-red mx-3"><?php echo randomPassword() ?></h3> 
-        </div>
     </div>
 </body>
 
