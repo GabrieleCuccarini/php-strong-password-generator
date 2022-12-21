@@ -19,6 +19,13 @@ h1 {
     width: 150px;
 }
 
+.color-green {
+    color: green !important;
+}
+
+.color-red {
+    color: red !important;
+}
 .bg-w {
     background-color: rgb(230,230,230);
 }

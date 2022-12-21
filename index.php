@@ -19,28 +19,33 @@
             <input name="passlength" type="number" id="inp" class="form-control w450"
             placeholder="Inserisci la lunghezza della password da generare">
             <input class="wider" type="submit">
-        </form>  
+        </form>
+        <div class="d-flex justify-content-center">
+            <h3 class="color-green">Password generata:</h3>
+            <h3 class="text-center color-red mx-3"><?php echo randomPassword() ?></h3> 
+        </div>
     </div>
 </body>
 
 </html>
 
 <?php
-$Stringinput = isset($_GET["passlength"]) ? $_GET["passlength"] : '';
-$NumInput = (int)$Stringinput;
-// var_dump($NumInput);
 
-getRndmKey();
+randomPassword();
 
-function getRndmKey() {
-    $minlett = "abcdefghilmnopqrstuvzjkywx";
-    $capslett = "ABCDEFGHILMNOPQRSTUVZJKYWX";
-    $numbers = "1234567890";
-    $altsimbols  = "àèìòùÀÈÌÒÙéç+^&";
-    $allstring = $minlett . $capslett . $numbers . $altsimbols;
-
-    $keyindex = rand(0, strlen($allstring) - 1);
-    return $allstring[$keyindex];
+function randomPassword() {
+    $Stringinput = isset($_GET["passlength"]) ? $_GET["passlength"] : '';
+    $NumInput = (int)$Stringinput;
+    // var_dump($NumInput);
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array(); //Dichiaro $pass come array
+    $alphaLength = strlen($alphabet) - 1; //setto l'index assegnandogli stringlength -1
+    for ($i = 0; $i < $NumInput; $i++) {
+        $n = rand(0, $alphaLength); //$n è l'index nel ciclo for, impostato casualmente tra 0 e alphalenght
+        $pass[] = $alphabet[$n]; // aggiungo all'array $pass il carattere trovato all'indice $n dell'array $alphabet
+    }
+    $password = implode($pass);
+    // var_dump(implode($pass));
+    return $password; //converto e ritorno l'array $pass trasformato nella stringa $password
 }
-
 ?>
