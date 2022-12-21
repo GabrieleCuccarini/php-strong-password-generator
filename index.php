@@ -1,3 +1,9 @@
+<?php
+include_once __DIR__ . '/partials/functions.php';
+
+randomPassword();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +20,12 @@
 <body>
     <h1 class="mt-2">Strong Password Generator</h1>
     <div class="container py-2 bg-w mt-4">
-        <form action="" method="GET" class="d-flex justify-content-around">
+        <form action="" method="GET" class="d-flex justify-content-around my-3">
             <label for="inp"><h4>Lunghezza Password</h4></label>
-            <input name="passlength" type="number" id="inp" class="form-control w450"
+            <input name="passlength" type="number" id="inp" class="form-control w450 mx-2"
             placeholder="Inserisci la lunghezza della password da generare">
             <input class="wider" type="submit">
+            <input class="wider" type="reset">
         </form>
         <div class="d-flex justify-content-center">
             <h3 class="color-green">Password generata:</h3>
@@ -28,24 +35,3 @@
 </body>
 
 </html>
-
-<?php
-
-randomPassword();
-
-function randomPassword() {
-    $Stringinput = isset($_GET["passlength"]) ? $_GET["passlength"] : '';
-    $NumInput = (int)$Stringinput;
-    // var_dump($NumInput);
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-    $pass = array(); //Dichiaro $pass come array
-    $alphaLength = strlen($alphabet) - 1; //setto l'index assegnandogli stringlength -1
-    for ($i = 0; $i < $NumInput; $i++) {
-        $n = rand(0, $alphaLength); //$n è l'index nel ciclo for, impostato casualmente tra 0 e alphalenght
-        $pass[] = $alphabet[$n]; // aggiungo all'array $pass il carattere trovato all'indice $n dell'array $alphabet
-    }
-    $password = implode($pass);
-    // var_dump(implode($pass));
-    return $password; //converto e ritorno l'array $pass trasformato nella stringa $password
-}
-?>
