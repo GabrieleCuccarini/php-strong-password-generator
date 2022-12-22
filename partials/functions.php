@@ -30,7 +30,8 @@ function randomPassword() {
     while ( $i < $NumInput) {
         $n = rand(0, $alphaLength); //$n è l'index nel ciclo for, impostato casualmente tra 0 e alphalenght
         if ($checkrepeat) {
-            $pass[] = $totalarray[$n]; 
+            $pass[] = $totalarray[$n];
+            $i++; 
         // Se le ripetizioni sono consentite aggiungo all'array $pass il carattere trovato 
         // all'indice $n di $totalarray. Else -->
         } else {
