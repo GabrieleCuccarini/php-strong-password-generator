@@ -26,7 +26,8 @@ function randomPassword() {
     // PEZZO DI FUNCTION POST "GESTIONE" DELLE CHECKBOX
     $pass = array(); //Dichiaro $pass come array
     $alphaLength = strlen($totalarray) - 1; //setto l'index assegnandogli stringlength -1
-    for ($i = 0; $i < $NumInput; $i++) {
+    $i = 0;
+    while ( $i < $NumInput) {
         $n = rand(0, $alphaLength); //$n è l'index nel ciclo for, impostato casualmente tra 0 e alphalenght
         if ($checkrepeat) {
             $pass[] = $totalarray[$n]; 
@@ -36,6 +37,7 @@ function randomPassword() {
         if (in_array($totalarray[$n], $pass)) {
             } else {
                $pass[] = $totalarray[$n]; 
+               $i++;
             }
         }
     };
